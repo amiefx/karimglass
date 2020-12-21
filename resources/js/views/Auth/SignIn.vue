@@ -10,6 +10,20 @@
             sm="8"
             md="5"
           >
+
+          <div class="d-flex justify-center mb-3">
+               <div>
+                   <router-link class="overline" :to="{ name: 'dashboard'}" > 
+                     <v-img
+                       :lazy-src="logo"
+                       max-width="100"
+                       :src="logo"
+                     ></v-img>
+                   </router-link>
+                </div>
+           </div>
+
+
             <v-card class="elevation-12">
               <v-progress-linear
                 :active="loading"
@@ -52,7 +66,7 @@
                   />
 
                   <vue-recaptcha ref="recaptcha"
-                    @verify="onVerify" sitekey="6LfyD_4UAAAAAERoUg4F4avADxNTXtiIOAOYoa0z">
+                    @verify="onVerify" sitekey="6Lc0fNsZAAAAAJoq33n9PPWeN7nWgNeJDBVaNNZ1">
                   </vue-recaptcha>
 
               </v-card-text>
@@ -61,17 +75,17 @@
                 <v-btn v-if="!loading" color="primary" block :disabled="!valid" type="submit">Login</v-btn>
               </v-card-actions>
               </v-form>
-              <v-card-actions class="d-flex justify-end mr-2">
+              <!-- <v-card-actions class="d-flex justify-end mr-2">
                       <router-link class="overline" :to="{ name: 'forgot-password'}" > Forgot Password </router-link>
-              </v-card-actions>
+              </v-card-actions> -->
             </v-card>
 
-           <div class="d-flex justify-center mt-3">
+           <!-- <div class="d-flex justify-center mt-3">
                <div class="caption mr-3 mt-1">Don't have Account?</div>
                <div>
                    <router-link class="overline" :to="{ name: 'register'}" > SignUp </router-link>
                 </div>
-           </div>
+           </div> -->
 
             <v-snackbar
             v-model="snackbar"
@@ -116,7 +130,8 @@ import { mapGetters, mapActions } from "vuex";
                 min: v => v.length >= 3 || 'Minimum 5 Chracters Required',
                 minpass: v => v.length >= 8 || 'Minimum 8 Chracters Required',
                 validEmail: v => /.+@.+\..+/.test(v) || 'Email must be valid'
-              }
+              },
+              logo: window.location.origin + '/storage/images/KGlogo.png'
           }
       },
       methods: {

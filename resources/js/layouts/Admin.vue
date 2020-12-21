@@ -79,7 +79,7 @@ export default {
   data: () => ({
     dialog: false,
     drawer: null,
-    logoImg: window.location.origin + "/storage/images/khodgilogo.png",
+    logoImg: window.location.origin + "/storage/images/KGlogo.png",
     users: {},
     items: [
       { icon: "mdi-chevron-right", text: "Dashboard", link: "/admin/dashboard" },
@@ -120,33 +120,11 @@ export default {
       {
         icon: "mdi-chevron-up",
         "icon-alt": "mdi-chevron-down",
-        text: "Other Pages",
-        link: '#',
-        children: [
-            { icon: "mdi-chevron-right", text: "About Us", link: "/admin/about" },
-            { icon: "mdi-chevron-right", text: "Delivery", link: "/admin/delivery" },
-            { icon: "mdi-chevron-right", text: "FAQ's", link: "/admin/faqs" },
-            { icon: "mdi-chevron-right", text: "Privacy Policy", link: "/admin/privacy" },
-            { icon: "mdi-chevron-right", text: "Order & Return", link: "/admin/order-return" },
-            ]
-      },
-      {
-        icon: "mdi-chevron-up",
-        "icon-alt": "mdi-chevron-down",
         text: "User Management",
         link: '#',
         children: [
             { icon: "mdi-chevron-right", text: "Roles", link: "/admin/roles" },
             { icon: "mdi-chevron-right", text: "Users", link: "/admin/users" },
-            ]
-      },
-      {
-        icon: "mdi-chevron-up",
-        "icon-alt": "mdi-chevron-down",
-        text: "Social Media Links",
-        link: '#',
-        children: [
-            { icon: "mdi-chevron-right", text: "Social Media Links", link: "/admin/social" },
             ]
       },
       {
@@ -168,7 +146,7 @@ export default {
     logout() {
       this.signOutAction().then(() => {
         this.$router.replace({
-          name: "home"
+          name: "signin"
         });
       });
     }
